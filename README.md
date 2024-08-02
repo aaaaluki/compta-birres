@@ -1,35 +1,27 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+# Compta Birres
 
-# _Sample project_
+Compta birres, però es connecta a internet.
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+# Esquemàtics
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+Aquí estan amb imagtes PNG, per mirar amb millor qualitat hi ha el [fitxer PDF](img/schematics.pdf).
 
+## **Root**
 
+Vista general:
+![Vista general](img/schematics-1.png)
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+## **Display**
 
-## Example folder contents
+Vista de l'apartat de display:
+![Vista general](img/schematics-2.png)
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+## **SD Card**
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
+Vista de l'apartat de la tarjeta microSD:
+![Vista general](img/schematics-3.png)
 
-Below is short explanation of remaining files in the project folder.
+## **Buttons**
 
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+Vista de l'apartat dels botons d'entrada:
+![Vista general](img/schematics-4.png)
