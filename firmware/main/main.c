@@ -21,10 +21,42 @@
 
 #include "esp_system.h"
 #include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
+#include "freertos/task.h"
 
+#include "button.h"
 #include "display_7segment.h"
 
+static const char *TAG = "Compta_Birres";
+
+static QueueHandle_t counter_queue = NULL;
+
+static void IRAM_ATTR counter_isr_handler(void *arg) {
+  static uint32_t counter = 1;
+  xQueueSendFromISR(counter_queue, &counter, NULL);
+  counter++;
+}
+
+static void display_example(void *arg) {
+  Display7Segment_t *display = (Display7Segment_t *)arg;
+
+  /* start display with 0 */
+  display_display(display, 0);
+
+  /* wait for a button counter press */
+  uint32_t counter = 0;
+  for (;;) {
+    if (xQueueReceive(counter_queue, &counter, portMAX_DELAY) != pdTRUE) {
+      vTaskDelay(100 / portTICK_PERIOD_MS);
+      continue;
+    }
+    printf("Displaying %lu...\n", counter);
+    display_display(display, counter);
+  }
+}
+
 void app_main(void) {
+  /* Initialize display */
   Display7Segment_t display = {
     .digits = 5,
     .type   = DISPLAY_7SEGMENT_COMMON_ANODE,
@@ -37,19 +69,31 @@ void app_main(void) {
         .ser_pin   = GPIO_NUM_27,
       },
   };
-
   display_init(&display);
 
-  for (int i = 0; i < 10; i++) {
-    printf("Displaying %d...\n", i);
-    display_display(&display, i);
+  /* Initialize and configure button */
+  Button_t button = {
+    .pin   = 34,
+    .logic = BUTTON_LOGIC_ACTIVE_LOW,
+    .config =
+      {
+        .mode         = GPIO_MODE_INPUT,
+        .pull_up_en   = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type    = GPIO_INTR_NEGEDGE,
+      },
+  };
+  button_init(&button);
+
+  counter_queue = xQueueCreate(8, sizeof(uint32_t));
+
+  button_configure_isr(&button, counter_isr_handler, NULL);
+
+  xTaskCreate(display_example, "display_example", 3 * 1024, (void *)&display,
+              10, NULL);
+
+  /* Infinite loop */
+  for (;;) {
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
-
-  for (int i = 0; i < 3; i++) {
-    printf("Restarting in %d s...\n", i);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
-
-  esp_restart();
 }
