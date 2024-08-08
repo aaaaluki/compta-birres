@@ -388,16 +388,40 @@
       "Root"
     ],
     [
-      "5e01fbb6-21b7-4d7e-98a0-05a954aadb07",
-      "Display"
+      "b5b8e0e8-de03-4f5d-ace0-40cbfd5ff73c",
+      "Power"
+    ],
+    [
+      "f932910e-8a32-4a38-b84f-035ec0678bed",
+      "Buttons"
     ],
     [
       "ef1dacc5-c1be-4b63-aa1d-59f87449502d",
       "SD Card"
     ],
     [
-      "f932910e-8a32-4a38-b84f-035ec0678bed",
-      "Buttons"
+      "5e01fbb6-21b7-4d7e-98a0-05a954aadb07",
+      "Display"
+    ],
+    [
+      "e865c6b1-c002-42b7-af05-f5cbb45e267c",
+      "Custom 7 Segment Display 1"
+    ],
+    [
+      "d1ecb511-fe34-474b-9e14-90d36e372d41",
+      "Custom 7 Segment Display 2"
+    ],
+    [
+      "60648cb2-df96-450d-b49f-4faba0a3c530",
+      "Custom 7 Segment Display 3"
+    ],
+    [
+      "89e272d5-4922-4d92-abeb-14bbf2c61101",
+      "Custom 7 Segment Display 4"
+    ],
+    [
+      "7edd2c95-3cd9-4458-af4c-6f881d13a898",
+      "Custom 7 Segment Display 5"
     ]
   ],
   "text_variables": {}

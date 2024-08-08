@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "SD Card")
-		(date "2024-08-01")
-		(rev "1.0")
+		(date "2024-08-08")
+		(rev "1.1")
 		(company "Associació Cultural TGK")
 	)
 	(lib_symbols
@@ -463,32 +463,32 @@
 		)
 	)
 	(no_connect
-		(at 99.06 63.5)
+		(at 130.81 90.17)
 		(uuid "49d0baed-b8e5-432a-bf79-68db071f2c22")
 	)
 	(no_connect
-		(at 129.54 60.96)
+		(at 161.29 87.63)
 		(uuid "50c2ed16-02dc-4129-a302-730ea75b7750")
 	)
 	(no_connect
-		(at 99.06 78.74)
+		(at 130.81 105.41)
 		(uuid "66b66c12-ad76-4c48-96b1-39c6874b4bfb")
 	)
 	(no_connect
-		(at 99.06 81.28)
+		(at 130.81 107.95)
 		(uuid "82bdf7b5-7280-4cea-88f0-1e26aa5e4438")
 	)
 	(no_connect
-		(at 99.06 60.96)
+		(at 130.81 87.63)
 		(uuid "962f84b8-c675-49bb-b793-d1fc5a183767")
 	)
 	(no_connect
-		(at 129.54 58.42)
+		(at 161.29 85.09)
 		(uuid "bbc33d46-64c7-4335-9626-548e6faaef97")
 	)
 	(wire
 		(pts
-			(xy 88.9 71.12) (xy 99.06 71.12)
+			(xy 120.65 97.79) (xy 130.81 97.79)
 		)
 		(stroke
 			(width 0)
@@ -498,7 +498,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 45.72) (xy 114.3 48.26)
+			(xy 146.05 72.39) (xy 146.05 74.93)
 		)
 		(stroke
 			(width 0)
@@ -508,7 +508,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 66.04) (xy 99.06 66.04)
+			(xy 120.65 92.71) (xy 130.81 92.71)
 		)
 		(stroke
 			(width 0)
@@ -518,7 +518,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 88.9) (xy 114.3 91.44)
+			(xy 146.05 115.57) (xy 146.05 118.11)
 		)
 		(stroke
 			(width 0)
@@ -528,7 +528,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 73.66) (xy 99.06 73.66)
+			(xy 120.65 100.33) (xy 130.81 100.33)
 		)
 		(stroke
 			(width 0)
@@ -538,7 +538,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 58.42) (xy 99.06 58.42)
+			(xy 120.65 85.09) (xy 130.81 85.09)
 		)
 		(stroke
 			(width 0)
@@ -548,7 +548,7 @@
 	)
 	(hierarchical_label "3V3"
 		(shape input)
-		(at 114.3 45.72 90)
+		(at 146.05 72.39 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -560,7 +560,7 @@
 	)
 	(hierarchical_label "MOSI"
 		(shape input)
-		(at 88.9 73.66 180)
+		(at 120.65 100.33 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -572,7 +572,7 @@
 	)
 	(hierarchical_label "CS"
 		(shape input)
-		(at 88.9 66.04 180)
+		(at 120.65 92.71 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -584,7 +584,7 @@
 	)
 	(hierarchical_label "GND"
 		(shape input)
-		(at 114.3 91.44 270)
+		(at 146.05 118.11 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -596,7 +596,7 @@
 	)
 	(hierarchical_label "MISO"
 		(shape input)
-		(at 88.9 58.42 180)
+		(at 120.65 85.09 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -608,7 +608,7 @@
 	)
 	(hierarchical_label "CLK"
 		(shape input)
-		(at 88.9 71.12 180)
+		(at 120.65 97.79 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -620,7 +620,7 @@
 	)
 	(symbol
 		(lib_id "Connector:SD_Card_Receptacle")
-		(at 114.3 68.58 0)
+		(at 146.05 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -629,7 +629,7 @@
 		(fields_autoplaced yes)
 		(uuid "01707abe-ac28-44d5-8c5a-a423092a222d")
 		(property "Reference" "J1"
-			(at 116.4941 45.72 0)
+			(at 148.2441 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -638,7 +638,7 @@
 			)
 		)
 		(property "Value" "SD_Card_Receptacle"
-			(at 116.4941 48.26 0)
+			(at 148.2441 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -647,7 +647,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 123.19 71.882 0)
+			(at 154.94 98.552 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -656,7 +656,7 @@
 			)
 		)
 		(property "Datasheet" "http://portal.fciconnect.com/Comergent//fci/drawing/10067847.pdf"
-			(at 114.3 68.58 0)
+			(at 146.05 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -665,7 +665,7 @@
 			)
 		)
 		(property "Description" "SD card receptacle"
-			(at 114.3 68.58 0)
+			(at 146.05 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)

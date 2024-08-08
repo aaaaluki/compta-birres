@@ -38,6 +38,7 @@ _autosave-*
 *.tmp
 *~
 fp-info-cache
+\#auto_saved_files\#
 
 # Netlist files (exported from Eeschema)
 *.net
