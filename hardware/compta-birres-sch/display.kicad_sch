@@ -6,9 +6,10 @@
 	(paper "A4")
 	(title_block
 		(title "Display")
-		(date "2024-08-08")
-		(rev "1.1")
+		(date "2024-09-20")
+		(rev "1.2")
 		(company "Associació Cultural TGK")
+		(comment 1 "Author: lluc")
 	)
 	(lib_symbols
 		(symbol "74xx:74HC595"
@@ -3844,27 +3845,6 @@
 			(type default)
 		)
 		(uuid "ff5bcbcc-58dd-4329-b9f3-21c09bd5d52d")
-	)
-	(text_box "**Future Warning!**\n7-Segment displays symbol and footprint used are for 0.56\" (14.2mm) display.\nIn the final design we might use a bigger custom created display, but with the same pinout.\nThe bigger design might not work with the same low voltage used by this one, 3.3V, so some interfacing might be needed.\n\nThe idea is that the bigger 7-Segment display can be used as a usual low voltage 0.56\" (14.2mm) display."
-		(exclude_from_sim no)
-		(at 50.8 165.1 0)
-		(size 88.9 25.4)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type color)
-			(color 255 229 191 1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 132 0 0 1)
-			)
-			(justify left top)
-		)
-		(uuid "ac190c7b-8420-460b-8a03-ddb78a8cdfdb")
 	)
 	(label "a"
 		(at 262.89 93.98 0)

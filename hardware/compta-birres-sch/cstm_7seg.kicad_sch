@@ -6,9 +6,10 @@
 	(paper "A4")
 	(title_block
 		(title "Custom 7 Segment Display")
-		(date "2024-08-08")
-		(rev "1.0")
+		(date "2024-09-20")
+		(rev "1.1")
 		(company "Associació Cultural TGK")
+		(comment 1 "Author: lluc")
 	)
 	(lib_symbols
 		(symbol "Device:LED"
@@ -2614,7 +2615,7 @@
 		)
 		(uuid "49dc23e0-c88d-4952-94e6-69dcd856f807")
 	)
-	(text_box "The DP will not be used for this application, so the DP_12V net migth be left floating.\nIf this is the case, a big resistor should be placed there."
+	(text_box "The DP will not be used for this application, so the DP_12V net migth be left floating.\nIf this is the case, a big resistor should be placed there.\n\nAn other option is to leave the dp_3V3 output of the 74HC595 floating."
 		(exclude_from_sim no)
 		(at 255.27 113.03 0)
 		(size 24.13 35.56)
@@ -2633,6 +2634,26 @@
 			(justify left top)
 		)
 		(uuid "8a85ae90-7290-458b-960b-6c936208434b")
+	)
+	(text_box "** Optional **\nThe regular 0.56\" 7-segment display will be placed facing backwards so people from behind can see the displaying number."
+		(exclude_from_sim no)
+		(at 177.8 152.4 0)
+		(size 38.1 12.7)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type color)
+			(color 255 229 191 1)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "9d8b7bf2-d58b-4eda-89bc-9206745d2570")
 	)
 	(text_box "Choosing the MOSFET\n\nThe led strips consume around 10 W/m @ 12Vdc, since the length of each segment will be around 10 cm that means each segment will consume ~1W.\nAt 12Vdc this is a current of ~83mA rounding that number to 100mA we can choose the suitable MOSFET (2N7000).\nThis is a logic level MOSFET, meaning it can be turned on/off directly with 3.3V logic levels."
 		(exclude_from_sim no)

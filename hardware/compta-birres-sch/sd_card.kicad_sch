@@ -9,6 +9,7 @@
 		(date "2024-08-08")
 		(rev "1.1")
 		(company "Associació Cultural TGK")
+		(comment 1 "Author: lluc")
 	)
 	(lib_symbols
 		(symbol "Connector:SD_Card_Receptacle"

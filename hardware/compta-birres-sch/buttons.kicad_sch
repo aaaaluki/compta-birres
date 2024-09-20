@@ -9,6 +9,7 @@
 		(date "2024-08-04")
 		(rev "1.1")
 		(company "Associació Cultural TGK")
+		(comment 1 "Author: lluc")
 	)
 	(lib_symbols
 		(symbol "74xx:74HC4051"
@@ -2410,6 +2411,28 @@
 			(type none)
 		)
 		(uuid e008b5c3-8b58-4c7f-bea2-305ef5f86790)
+	)
+	(text_box "TODO:\nPlace the TLP521-4 (optocouplers) and use 12V for the buttons"
+		(exclude_from_sim no)
+		(at 25.4 25.4 0)
+		(size 38.1 12.7)
+		(stroke
+			(width 0)
+			(type default)
+			(color 132 0 0 1)
+		)
+		(fill
+			(type color)
+			(color 255 229 191 1)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 132 0 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "b5f06177-7411-416e-924d-25c53e202718")
 	)
 	(text_box "NOTE:\nThe buttons will use a pull-up, so the idle state would be high. And the ceramic capacitor is placed for reducing the interferences.\nBoth of these components whould be placed as close to the IC as possible."
 		(exclude_from_sim no)
