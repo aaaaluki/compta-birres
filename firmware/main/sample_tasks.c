@@ -25,7 +25,7 @@
 #include "button.h"
 #include "display_7segment.h"
 
-static const uint8_t DISPLAY_DIGITS = 5;
+#define DISPLAY_DIGITS (5U)
 
 /* Display samples */
 void display_rotate_numbers(void *arg) {
@@ -109,5 +109,46 @@ void button_single(void *arg) {
     case DOUBLE_PRESS: printf("Double press\n"); break;
     }
     vTaskDelay(100 / portTICK_PERIOD_MS);
+  }
+}
+
+/* Counter samples */
+void counter_button(void *arg) {
+  /* Initialize counter */
+  uint32_t counter     = 0;
+  uint32_t old_counter = 0;
+
+  /* Initialize button */
+  Button_t button = {
+    .pin   = GPIO_NUM_34,
+    .logic = BUTTON_LOGIC_ACTIVE_LOW,
+    .config =
+      {
+        .mode         = GPIO_MODE_INPUT,
+        .pull_up_en   = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type    = GPIO_INTR_DISABLE,
+      },
+  };
+  button_init(&button);
+
+  /* Infinite loop */
+  for (;;) {
+    /* read button event */
+    ButtonEvent_t event;
+    button_event(&button, &event);
+    switch (event) {
+    case NO_PRESS: break;
+    case SINGLE_PRESS: counter += 1; break;
+    case LONG_PRESS: counter = 0; break;
+    case DOUBLE_PRESS: counter += 2; break;
+    }
+
+    if (counter != old_counter) {
+      printf("Counter: %lu\n", counter);
+      old_counter = counter;
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(10)); // Yield for 10 ms
   }
 }

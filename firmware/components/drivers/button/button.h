@@ -23,7 +23,7 @@
 #include "driver/gpio.h"
 
 #define DEBOUNCE_MICROS       (5U * 1000U)
-#define DOUBLE_GAP_MICROS_MAX (200U * 1000U)
+#define DOUBLE_GAP_MICROS_MAX (0U * 1000U) /* disabling double press */
 #define LONG_MICROS_MIN       (1000U * 1000U)
 
 typedef enum {

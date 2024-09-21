@@ -22,3 +22,6 @@ void display_rotate_numbers(void *arg);
 
 /* Button samples */
 void button_single(void *arg);
+
+/* Counter samples */
+void counter_button(void *arg);
