@@ -19,3 +19,6 @@
 
 /* Display samples */
 void display_rotate_numbers(void *arg);
+
+/* Button samples */
+void button_single(void *arg);

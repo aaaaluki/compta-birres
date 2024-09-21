@@ -25,7 +25,9 @@
 static const char *TAG = "Compta_Birres";
 
 void app_main(void) {
-  xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024, NULL, 10, NULL);
+  // xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024,
+  // NULL, 10, NULL);
+  xTaskCreate(button_single, "button_single", 3 * 1024, NULL, 10, NULL);
 
   /* Infinite loop */
   for (;;) {
