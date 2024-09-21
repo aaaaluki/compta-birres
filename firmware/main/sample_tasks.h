@@ -1,5 +1,5 @@
 /*
- * Created on Sun Aug 03 2024
+ * Created on Sat Sep 21 2024
  *
  * Copyright (C) 2024 Lluc Ricart
  *
@@ -17,18 +17,5 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-
-#include "sample_tasks.h"
-
-static const char *TAG = "Compta_Birres";
-
-void app_main(void) {
-  xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024, NULL, 10, NULL);
-
-  /* Infinite loop */
-  for (;;) {
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
-}
+/* Display samples */
+void display_rotate_numbers(void *arg);
