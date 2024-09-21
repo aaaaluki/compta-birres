@@ -19,6 +19,10 @@
 
 #include "button.h"
 
+#include "esp_timer.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
 esp_err_t button_init(Button_t *button) {
   /* check for null */
   if (!button) {
@@ -27,6 +31,16 @@ esp_err_t button_init(Button_t *button) {
 
   /* configure pin */
   button->config.pin_bit_mask = 1ULL << button->pin;
+
+  /* set start state as disabled */
+  button->state_ts = 0;
+  button->state    = (button->logic == BUTTON_LOGIC_ACTIVE_HIGH) ? false : true;
+
+  button->double_pending     = false;
+  button->long_press_pending = false;
+  button->down               = false;
+  button->down_ts            = 0;
+  button->up_ts              = 0;
 
   return gpio_config(&button->config);
 }
@@ -63,5 +77,87 @@ esp_err_t button_read(Button_t *button, bool *state) {
   } else {
     *state = !gpio_get_level(button->pin);
   }
+  return ESP_OK;
+}
+
+esp_err_t button_state(Button_t *button, bool *state) {
+  /* check for null */
+  if (!button || !state) {
+    return ESP_FAIL;
+  }
+
+  /* get button state with debouncing */
+  uint64_t now_ts = esp_timer_get_time();
+  bool now_state;
+  if (now_ts - button->state_ts > DEBOUNCE_MICROS) {
+    button_read(button, &now_state);
+    if (button->state != now_state) {
+      button->state    = !button->state;
+      button->state_ts = now_ts;
+    }
+  }
+
+  *state = button->state;
+  return ESP_OK;
+}
+
+esp_err_t button_event(Button_t *button, ButtonEvent_t *event) {
+  /* check for null */
+  if (!button || !event) {
+    return ESP_FAIL;
+  }
+
+  *event          = NO_PRESS;
+  uint32_t now_ts = esp_timer_get_time();
+
+  // If state changed...
+  bool state;
+  button_state(button, &state);
+  if (button->down != state) {
+    button->down = !button->down;
+    if (button->down) {
+      // Timestamp button-down
+      button->down_ts = now_ts;
+
+    } else {
+      // Timestamp button-up
+      button->up_ts = now_ts;
+
+      if (button->long_press_pending) {
+        // If a long press was pending, no further action is needed (clear
+        // flags)
+        button->long_press_pending = false;
+        button->double_pending     = false;
+
+      } else if (button->double_pending) {
+        // Check for potential double press
+        *event                 = DOUBLE_PRESS;
+        button->double_pending = false;
+
+      } else {
+        // If no long press or double press is detected, set double press
+        // pending
+        button->double_pending = true;
+      }
+
+      // Cancel any long press pending on button release
+      button->long_press_pending = false;
+    }
+  }
+
+  // If button-up and double-press gap time expired, it was a single press
+  if (!button->down && button->double_pending &&
+      (now_ts - button->up_ts > DOUBLE_GAP_MICROS_MAX)) {
+    button->double_pending = false;
+    *event                 = SINGLE_PRESS;
+
+  } else if (button->down && !button->long_press_pending &&
+             (now_ts - button->down_ts > LONG_MICROS_MIN)) {
+    // else check for long press
+    *event                     = LONG_PRESS;
+    button->long_press_pending = true;
+    button->double_pending     = false;
+  }
+
   return ESP_OK;
 }

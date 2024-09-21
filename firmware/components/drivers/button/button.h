@@ -22,14 +22,27 @@
 
 #include "driver/gpio.h"
 
+#define DEBOUNCE_MICROS       (5U * 1000U)
+#define DOUBLE_GAP_MICROS_MAX (200U * 1000U)
+#define LONG_MICROS_MIN       (1000U * 1000U)
+
 typedef enum {
   BUTTON_LOGIC_ACTIVE_HIGH,
   BUTTON_LOGIC_ACTIVE_LOW,
 } ButtonLogic_t;
 
+typedef enum { NO_PRESS, SINGLE_PRESS, LONG_PRESS, DOUBLE_PRESS } ButtonEvent_t;
+
 typedef struct {
   gpio_num_t pin;
   ButtonLogic_t logic;
+  bool state;
+  bool double_pending;
+  bool long_press_pending;
+  bool down;
+  uint32_t down_ts;
+  uint32_t up_ts;
+  int64_t state_ts;
   gpio_config_t config;
 } Button_t;
 
@@ -53,12 +66,31 @@ esp_err_t button_configure_isr(Button_t *button, gpio_isr_t isr_handler,
                                void *args);
 
 /**
- * @brief Read button state
+ * @brief Read raw button state
  *
  * @param button Button
  * @param state Button state
  * @return esp_err_t ESP_OK on success, ESP_FAIL on error
  */
 esp_err_t button_read(Button_t *button, bool *state);
+
+/**
+ * @brief Get button state with debouncing
+ *
+ * @param button Button
+ * @param state Button state
+ * @return esp_err_t ESP_OK on success, ESP_FAIL on error
+ */
+esp_err_t button_state(Button_t *button, bool *state);
+
+/**
+ * @brief Get button event
+ *
+ * @param button Button
+ * @param event Button event ButtonEvent_t
+ * @see ButtonEvent_t
+ * @return esp_err_t ESP_OK on success, ESP_FAIL on error
+ */
+esp_err_t button_event(Button_t *button, ButtonEvent_t *event);
 
 #endif /* BUTTON_H_ */
