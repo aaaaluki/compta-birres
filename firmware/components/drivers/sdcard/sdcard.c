@@ -22,7 +22,7 @@
 #include "esp_vfs_fat.h"
 #include "sdmmc_cmd.h"
 
-static const char *TAG = "SDCard";
+static const char *TAG = "CB_mod_SDCard";
 
 esp_err_t sdcard_init(SDCard_t *sdcard) {
   esp_err_t ret;

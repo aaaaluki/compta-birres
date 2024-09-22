@@ -1,0 +1,77 @@
+menu "Compta Birres Configuration"
+    menu "Display Configuration"
+        config CB_DISPLAY_DIGITS
+            int "Number of digits on the display"
+            default 5
+            help
+                Number of digits on the display
+        config CB_DISPLAY_COMMON_NODE
+            int "Common node for the display (CA/CC)"
+            default 1
+            range 0 1
+            help
+                "0" for Common Anode, "1" for Common Cathode
+        config CB_DISPLAY_PIN_OE
+            int "Display OE pin"
+            default 21
+            help
+                GPIO pin to use for the OE pin in the Display
+        config CB_DISPLAY_PIN_RCLK
+            int "Display RCLK pin"
+            default 26
+            help
+                GPIO pin to use for the RCLK pin in the Display
+        config CB_DISPLAY_PIN_SRCLR
+            int "Display SRCLR pin"
+            default 25
+            help
+                GPIO pin to use for the SRCLR pin in the Display
+        config CB_DISPLAY_PIN_SRCLK
+            int "Display SRCLK pin"
+            default 22
+            help
+                GPIO pin to use for the SRCLK pin in the Display
+        config CB_DISPLAY_PIN_SER
+            int "Display SER pin"
+            default 27
+            help
+                GPIO pin to use for the SER pin in the Display
+    endmenu
+
+    menu "Buttons Configuration"
+        config CB_BUTTONS_PIN_BUT
+            int "Buttons input pin"
+            default 34
+            help
+                GPIO pin to use for the buttons input
+        config CB_BUTTONS_PIN_BUT_LOGIC
+            int "Logic for the input button"
+            default 1
+            range 0 1
+            help
+                "0" for active high logic, "1" for active low logic
+    endmenu
+
+    menu "SD Card Configuration"
+        config CB_SDCARD_PIN_MOSI
+            int "SD Card MOSI pin"
+            default 23
+            help
+                GPIO Pin to use for the MOSI pin in the SD Card
+        config CB_SDCARD_PIN_MISO
+            int "SD Card MISO pin"
+            default 19
+            help
+                GPIO Pin to use for the MISO pin in the SD Card
+        config CB_SDCARD_PIN_CLK
+            int "SD Card CLK pin"
+            default 18
+            help
+                GPIO Pin to use for the CLK pin in the SD Card
+        config CB_SDCARD_PIN_CS
+            int "SD Card CS pin"
+            default 5
+            help
+                GPIO Pin to use for the CS pin in the SD Card
+    endmenu
+endmenu

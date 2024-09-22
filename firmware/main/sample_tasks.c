@@ -23,27 +23,27 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-#include "button.h"
 #include "display_7segment.h"
+#include "mux_button.h"
 #include "sdcard.h"
 
 #define DISPLAY_DIGITS (5U)
 
-const char *TAG = "SampleTasks";
+const char *TAG = "CB_sample_tasks";
 
 /* Display samples */
 void display_rotate_numbers(void *arg) {
   /* Initialize display */
   Display7Segment_t display = {
-    .digits = DISPLAY_DIGITS,
-    .type   = DISPLAY_7SEGMENT_COMMON_CATHODE,
+    .digits = CONFIG_CB_DISPLAY_DIGITS,
+    .type   = CONFIG_CB_DISPLAY_COMMON_NODE,
     .ic =
       {
-        .oe_pin    = GPIO_NUM_21,
-        .rclk_pin  = GPIO_NUM_26,
-        .srclr_pin = GPIO_NUM_25,
-        .srclk_pin = GPIO_NUM_22,
-        .ser_pin   = GPIO_NUM_27,
+        .oe_pin    = CONFIG_CB_DISPLAY_PIN_OE,
+        .rclk_pin  = CONFIG_CB_DISPLAY_PIN_RCLK,
+        .srclr_pin = CONFIG_CB_DISPLAY_PIN_SRCLR,
+        .srclk_pin = CONFIG_CB_DISPLAY_PIN_SRCLK,
+        .ser_pin   = CONFIG_CB_DISPLAY_PIN_SER,
       },
   };
   display_init(&display);
@@ -75,44 +75,28 @@ void display_rotate_numbers(void *arg) {
 /* Button samples */
 void button_single(void *arg) {
   /* Initialize button */
-  Button_t button = {
-    .pin   = GPIO_NUM_34,
-    .logic = BUTTON_LOGIC_ACTIVE_LOW,
-    .config =
-      {
-        .mode         = GPIO_MODE_INPUT,
-        .pull_up_en   = GPIO_PULLUP_ENABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type    = GPIO_INTR_DISABLE,
-      },
+  MuxButton_t button = {
+    .pin   = CONFIG_CB_BUTTONS_PIN_BUT,
+    .logic = CONFIG_CB_BUTTONS_PIN_BUT_LOGIC,
   };
   button_init(&button);
 
   /* Infinite loop */
+  ButtonEvent_t event;
   for (;;) {
     /* get ts */
     uint32_t ts = esp_timer_get_time();
-    printf("[%lu] ", ts / 1000);
-
-    /* read button state */
-    bool state;
-    button_read(&button, &state);
-    printf("raw: %s; ", state ? "pressed" : "released");
-
-    /* read button state with debouncing */
-    button_state(&button, &state);
-    printf("deb: %s; ", state ? "pressed" : "released");
 
     /* read button event */
-    ButtonEvent_t event;
     button_event(&button, &event);
     switch (event) {
-    case NO_PRESS: printf("No press\n"); break;
-    case SINGLE_PRESS: printf("Single press\n"); break;
-    case LONG_PRESS: printf("Long press\n"); break;
-    case DOUBLE_PRESS: printf("Double press\n"); break;
+    case NO_PRESS: break;
+    case SINGLE_PRESS: printf("[%lu] Single press\n", ts / 1000); break;
+    case LONG_PRESS: printf("[%lu] Long press\n", ts / 1000); break;
+    case DOUBLE_PRESS: printf("[%lu] Double press\n", ts / 1000); break;
     }
-    vTaskDelay(100 / portTICK_PERIOD_MS);
+
+    vTaskDelay(pdMS_TO_TICKS(10)); // Yield for 10 ms
   }
 }
 
@@ -123,20 +107,14 @@ void counter_button(void *arg) {
   uint32_t old_counter = 0;
 
   /* Initialize button */
-  Button_t button = {
-    .pin   = GPIO_NUM_34,
-    .logic = BUTTON_LOGIC_ACTIVE_LOW,
-    .config =
-      {
-        .mode         = GPIO_MODE_INPUT,
-        .pull_up_en   = GPIO_PULLUP_ENABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type    = GPIO_INTR_DISABLE,
-      },
+  MuxButton_t button = {
+    .pin   = CONFIG_CB_BUTTONS_PIN_BUT,
+    .logic = CONFIG_CB_BUTTONS_PIN_BUT_LOGIC,
   };
   button_init(&button);
 
   /* Infinite loop */
+  printf("Counter: %lu\n", counter);
   for (;;) {
     /* read button event */
     ButtonEvent_t event;
@@ -161,10 +139,10 @@ void counter_button(void *arg) {
 void sdcard_example(void *arg) {
   esp_err_t ret;
   SDCard_t sdcard = {
-    .mosi = SDCARD_PIN_MOSI,
-    .miso = SDCARD_PIN_MISO,
-    .clk  = SDCARD_PIN_CLK,
-    .cs   = SDCARD_PIN_CS,
+    .mosi = CONFIG_CB_SDCARD_PIN_MOSI,
+    .miso = CONFIG_CB_SDCARD_PIN_MISO,
+    .clk  = CONFIG_CB_SDCARD_PIN_CLK,
+    .cs   = CONFIG_CB_SDCARD_PIN_CS,
   };
 
   /* Initialize SD card */

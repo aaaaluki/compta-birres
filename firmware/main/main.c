@@ -23,7 +23,7 @@
 
 #include "sample_tasks.h"
 
-static const char *TAG = "Compta_Birres";
+static const char *TAG = "CB_main";
 
 void app_main(void) {
   ESP_LOGI(TAG, "Starting Compta Birres");
