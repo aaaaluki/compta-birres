@@ -17,6 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
@@ -25,10 +26,12 @@
 static const char *TAG = "Compta_Birres";
 
 void app_main(void) {
+  ESP_LOGI(TAG, "Starting Compta Birres");
   // xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024,
   // NULL, 10, NULL);
   // xTaskCreate(button_single, "button_single", 3 * 1024, NULL, 10, NULL);
-  xTaskCreate(counter_button, "counter_button", 3 * 1024, NULL, 10, NULL);
+  // xTaskCreate(counter_button, "counter_button", 3 * 1024, NULL, 10, NULL);
+  xTaskCreate(sdcard_example, "sdcard_example", 3 * 1024, NULL, 10, NULL);
 
   /* Infinite loop */
   for (;;) {

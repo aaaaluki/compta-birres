@@ -1,5 +1,5 @@
 /*
- * Created on Sat Sep 21 2024
+ * Created on Sun Sep 22 2024
  *
  * Copyright (C) 2024 Lluc Ricart
  *
@@ -17,19 +17,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SAMPLE_TASKS_H_
-#define SAMPLE_TASKS_H_
+#ifndef SDCARD_H_
+#define SDCARD_H_
 
-/* Display samples */
-void display_rotate_numbers(void *arg);
+#include "driver/gpio.h"
 
-/* Button samples */
-void button_single(void *arg);
+#define MOUNT_POINT "/sdcard"
 
-/* Counter samples */
-void counter_button(void *arg);
+#define SDCARD_PIN_MOSI GPIO_NUM_23
+#define SDCARD_PIN_MISO GPIO_NUM_19
+#define SDCARD_PIN_CLK  GPIO_NUM_18
+#define SDCARD_PIN_CS   GPIO_NUM_5
 
-/* SD card samples */
-void sdcard_example(void *arg);
+typedef struct {
+  gpio_num_t mosi;
+  gpio_num_t miso;
+  gpio_num_t clk;
+  gpio_num_t cs;
+} SDCard_t;
 
-#endif /* SAMPLE_TASKS_H_ */
+/**
+ * @brief Initialize the SD card
+ *
+ * @param sdcard Pointer to the SDCard_t struct
+ *
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
+esp_err_t sdcard_init(SDCard_t *sdcard);
+
+#endif /* SDCARD_H_ */

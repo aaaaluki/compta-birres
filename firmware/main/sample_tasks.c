@@ -17,6 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "esp_log.h"
 #include "esp_system.h"
 #include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
@@ -24,8 +25,11 @@
 
 #include "button.h"
 #include "display_7segment.h"
+#include "sdcard.h"
 
 #define DISPLAY_DIGITS (5U)
+
+const char *TAG = "SampleTasks";
 
 /* Display samples */
 void display_rotate_numbers(void *arg) {
@@ -150,5 +154,27 @@ void counter_button(void *arg) {
     }
 
     vTaskDelay(pdMS_TO_TICKS(10)); // Yield for 10 ms
+  }
+}
+
+/* SD card samples */
+void sdcard_example(void *arg) {
+  esp_err_t ret;
+  SDCard_t sdcard = {
+    .mosi = SDCARD_PIN_MOSI,
+    .miso = SDCARD_PIN_MISO,
+    .clk  = SDCARD_PIN_CLK,
+    .cs   = SDCARD_PIN_CS,
+  };
+
+  /* Initialize SD card */
+  ret = sdcard_init(&sdcard);
+  if (ret != ESP_OK) {
+    ESP_LOGE(TAG, "Failed to initialize SD card\n");
+  }
+
+  /* Infinite loop */
+  for (;;) {
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
