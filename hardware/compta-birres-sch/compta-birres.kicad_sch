@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Root")
-		(date "2024-08-08")
-		(rev "1.3")
+		(date "2024-09-24")
+		(rev "1.4")
 		(company "Associació Cultural TGK")
 		(comment 1 "Author: lluc")
 	)
@@ -3028,7 +3028,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "03cc5094-61d7-4a00-bd7c-d8b5e1da0d68")
-		(property "Reference" "#PWR051"
+		(property "Reference" "#PWR015"
 			(at 85.09 168.91 0)
 			(effects
 				(font
@@ -3078,7 +3078,7 @@
 		(instances
 			(project ""
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR051")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -3094,7 +3094,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "04aa676a-36c9-42d5-a97d-b3ccab9e03fc")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR010"
 			(at 224.79 118.11 0)
 			(effects
 				(font
@@ -3144,7 +3144,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR020")
+					(reference "#PWR010")
 					(unit 1)
 				)
 			)
@@ -3160,7 +3160,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "43090dc6-07a8-41fe-b7b3-1ca8dad17b4b")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR04"
 			(at 138.43 55.88 0)
 			(effects
 				(font
@@ -3210,7 +3210,7 @@
 		(instances
 			(project ""
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR02")
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -3227,7 +3227,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4c6040d0-5d18-4fe8-a115-7f4b9735d287")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR012"
 			(at 246.38 132.08 0)
 			(effects
 				(font
@@ -3277,7 +3277,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR07")
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
@@ -3293,7 +3293,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4f9dc7df-b9ce-468a-ab88-65a74584a7a7")
-		(property "Reference" "C9"
+		(property "Reference" "C1"
 			(at 232.41 144.7799 0)
 			(effects
 				(font
@@ -3347,7 +3347,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "C9")
+					(reference "C1")
 					(unit 1)
 				)
 			)
@@ -3364,7 +3364,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6696f309-60cf-4c5b-b275-8e08604207c6")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR07"
 			(at 220.98 68.58 0)
 			(effects
 				(font
@@ -3414,7 +3414,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR05")
+					(reference "#PWR07")
 					(unit 1)
 				)
 			)
@@ -3431,7 +3431,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "67024f60-f6e9-4cab-8cf0-9e7003932c08")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR01"
 			(at 224.79 31.75 0)
 			(effects
 				(font
@@ -3481,7 +3481,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR021")
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -3497,7 +3497,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "69ffa43d-f11e-463a-8330-703139d86115")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR014"
 			(at 246.38 158.75 0)
 			(effects
 				(font
@@ -3547,7 +3547,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR08")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -3634,7 +3634,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "784ce412-2997-481c-a8bd-4f3975902b8b")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR02"
 			(at 224.79 46.99 0)
 			(effects
 				(font
@@ -3684,7 +3684,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR022")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -3766,7 +3766,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9affb1b7-2d1a-49ca-bd60-34e9539116c6")
-		(property "Reference" "R9"
+		(property "Reference" "R2"
 			(at 237.49 133.35 90)
 			(effects
 				(font
@@ -3818,7 +3818,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "R9")
+					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -3834,7 +3834,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "aeb10e34-e9c5-47e6-8a63-ee6fc679ce70")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR08"
 			(at 224.79 90.17 0)
 			(effects
 				(font
@@ -3884,7 +3884,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR04")
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -4078,7 +4078,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b213a898-8b80-4c1f-be1b-dc528b06fb4f")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR013"
 			(at 228.6 158.75 0)
 			(effects
 				(font
@@ -4128,7 +4128,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR06")
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -4144,7 +4144,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b4784d1f-0e3d-4542-ab2b-6cf1bad3d3f1")
-		(property "Reference" "#PWR052"
+		(property "Reference" "#PWR016"
 			(at 91.44 175.26 0)
 			(effects
 				(font
@@ -4194,7 +4194,7 @@
 		(instances
 			(project ""
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR052")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -4210,7 +4210,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c26c235c-c396-4e02-a3a6-7245beb6a940")
-		(property "Reference" "#PWR053"
+		(property "Reference" "#PWR017"
 			(at 91.44 187.96 0)
 			(effects
 				(font
@@ -4260,7 +4260,7 @@
 		(instances
 			(project ""
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR053")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -4276,7 +4276,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c67ac4dc-6b3e-4584-b1b9-6956045750bd")
-		(property "Reference" "#PWR049"
+		(property "Reference" "#PWR06"
 			(at 226.06 66.04 0)
 			(effects
 				(font
@@ -4326,7 +4326,7 @@
 		(instances
 			(project ""
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR049")
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -4342,7 +4342,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d6343c19-7e6c-4a05-871e-3730034d4249")
-		(property "Reference" "R10"
+		(property "Reference" "R1"
 			(at 248.92 132.0799 0)
 			(effects
 				(font
@@ -4396,7 +4396,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "R10")
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -4412,7 +4412,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d63d3927-4fab-4f0a-a7af-f1e04a0e34bf")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR011"
 			(at 133.35 134.62 0)
 			(effects
 				(font
@@ -4462,7 +4462,7 @@
 		(instances
 			(project ""
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR01")
+					(reference "#PWR011")
 					(unit 1)
 				)
 			)
@@ -4478,7 +4478,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d7eec215-57ff-4dbf-9d8b-7144c005daa0")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR05"
 			(at 97.79 63.5 0)
 			(effects
 				(font
@@ -4528,7 +4528,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR09")
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -4544,7 +4544,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e4ddc7d7-a785-46e1-b55b-baef757ed6b6")
-		(property "Reference" "SW9"
+		(property "Reference" "SW1"
 			(at 250.19 144.7799 90)
 			(effects
 				(font
@@ -4598,7 +4598,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "SW9")
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -4615,7 +4615,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e972d90e-c81b-49bb-b10f-3af880aa96ec")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR09"
 			(at 224.79 102.87 0)
 			(effects
 				(font
@@ -4665,7 +4665,7 @@
 		(instances
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
-					(reference "#PWR017")
+					(reference "#PWR09")
 					(unit 1)
 				)
 			)
