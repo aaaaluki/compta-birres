@@ -17,14 +17,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "sample_tasks.h"
+
+#include "driver/gpio.h"
 #include "esp_log.h"
 #include "esp_system.h"
 #include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
+#include "button.h"
 #include "display_7segment.h"
-#include "mux_button.h"
 #include "sdcard.h"
 
 #define DISPLAY_DIGITS (5U)
@@ -75,7 +78,7 @@ void display_rotate_numbers(void *arg) {
 /* Button samples */
 void button_single(void *arg) {
   /* Initialize button */
-  MuxButton_t button = {
+  Button_t button = {
     .pin   = CONFIG_CB_BUTTONS_PIN_BUT,
     .logic = CONFIG_CB_BUTTONS_PIN_BUT_LOGIC,
   };
@@ -107,7 +110,7 @@ void counter_button(void *arg) {
   uint32_t old_counter = 0;
 
   /* Initialize button */
-  MuxButton_t button = {
+  Button_t button = {
     .pin   = CONFIG_CB_BUTTONS_PIN_BUT,
     .logic = CONFIG_CB_BUTTONS_PIN_BUT_LOGIC,
   };

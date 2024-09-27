@@ -17,13 +17,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "mux_button.h"
+#include "button.h"
 
 #include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-esp_err_t button_init(MuxButton_t *button) {
+esp_err_t button_init(Button_t *button) {
   /* check for null */
   if (!button) {
     return ESP_FAIL;
@@ -50,7 +50,7 @@ esp_err_t button_init(MuxButton_t *button) {
   return gpio_config(&config);
 }
 
-esp_err_t button_configure_isr(MuxButton_t *button, gpio_isr_t isr_handler,
+esp_err_t button_configure_isr(Button_t *button, gpio_isr_t isr_handler,
                                void *args) {
   /* check for null */
   if (!button) {
@@ -70,7 +70,7 @@ esp_err_t button_configure_isr(MuxButton_t *button, gpio_isr_t isr_handler,
   return ret;
 }
 
-esp_err_t button_read(MuxButton_t *button, bool *state) {
+esp_err_t button_read(Button_t *button, bool *state) {
   /* check for null */
   if (!button || !state) {
     return ESP_FAIL;
@@ -85,7 +85,7 @@ esp_err_t button_read(MuxButton_t *button, bool *state) {
   return ESP_OK;
 }
 
-esp_err_t button_state(MuxButton_t *button, bool *state) {
+esp_err_t button_state(Button_t *button, bool *state) {
   /* Implementation taken from https://stackoverflow.com/a/66824589 and modified
    * to work with ESP32 */
 
@@ -109,7 +109,7 @@ esp_err_t button_state(MuxButton_t *button, bool *state) {
   return ESP_OK;
 }
 
-esp_err_t button_event(MuxButton_t *button, ButtonEvent_t *event) {
+esp_err_t button_event(Button_t *button, ButtonEvent_t *event) {
   /* Implementation taken from https://stackoverflow.com/a/66824589 and modified
    * to work with ESP32 */
 
