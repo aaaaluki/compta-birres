@@ -89,4 +89,31 @@ menu "Compta Birres Configuration"
             help
                 GPIO Pin to use for the CS pin in the SD Card
     endmenu
+
+    choice CB_MODE_CHOICE
+        prompt "Sample mode to use"
+        default MODE_DISPLAY_ROTATE_NUMBERS
+
+        config CB_MODE_DISPLAY_ROTATE_NUMBERS
+            bool "DISPLAY: Display rotate numbers"
+        config CB_MODE_ICCD4051_ROTATION
+            bool "CD4051: Get each output rotation"
+        config CB_MODE_ICCD4051_FIXED
+            bool "CD4051: Get only one output continuously"
+        config CB_MODE_BUTTON_SINGLE
+            bool "BUTTON: Display the state of one pin"
+        config CB_MODE_COUNTER_BUTTON
+            bool "BUTTON: Use one button as a counter"
+        config CB_MODE_SDCARD_EXAMPLE
+            bool "SD CARD: Mount the uSD card and read it's contents"
+    endchoice
+    config CB_SAMPLE_MODE
+        string
+        default "DISPLAY: Display rotate numbers" if CB_MODE_DISPLAY_ROTATE_NUMBERS
+        default "CD4051: Get each output rotation" if CB_MODE_ICCD4051_ROTATION
+        default "CD4051: Get only one output continuously" if CB_MODE_ICCD4051_FIXED
+        default "BUTTON: Display the state of one pin" if CB_MODE_BUTTON_SINGLE
+        default "BUTTON: Use one button as a counter" if CB_MODE_COUNTER_BUTTON
+        default "SD CARD: Mount the uSD card and read it's contents" if CB_MODE_SDCARD_EXAMPLE
+
 endmenu

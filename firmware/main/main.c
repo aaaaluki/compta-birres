@@ -27,14 +27,24 @@ static const char *TAG = "CB_main";
 
 void app_main(void) {
   ESP_LOGI(TAG, "Starting Compta Birres");
-  /* xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024,
-   * NULL, 10, NULL); */
+#if CONFIG_CB_MODE_DISPLAY_ROTATE_NUMBERS
+  xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024, NULL,
+              10, NULL);
+#elif CONFIG_CB_MODE_ICCD4051_ROTATION
   xTaskCreate(iccd4051_rotation, "iccd4051_rotation", 3 * 1024, NULL, 10, NULL);
-  /* xTaskCreate(iccd4051_fixed, "iccd4051_fixed", 3 * 1024, NULL, 10, NULL); */
-  /* xTaskCreate(button_single, "button_single", 3 * 1024, NULL, 10, NULL); */
-  /* xTaskCreate(counter_button, "counter_button", 3 * 1024, NULL, 10, NULL); */
-  /* xTaskCreate(mux_buttons, "mux_buttons", 3 * 1024, NULL, 10, NULL); */
-  /* xTaskCreate(sdcard_example, "sdcard_example", 3 * 1024, NULL, 10, NULL); */
+#elif CONFIG_CB_MODE_ICCD4051_FIXED
+  xTaskCreate(iccd4051_fixed, "iccd4051_fixed", 3 * 1024, NULL, 10, NULL);
+#elif CONFIG_CB_MODE_BUTTON_SINGLE
+  xTaskCreate(button_single, "button_single", 3 * 1024, NULL, 10, NULL);
+#elif CONFIG_CB_MODE_COUNTER_BUTTON
+  xTaskCreate(counter_button, "counter_button", 3 * 1024, NULL, 10, NULL);
+#elif CONFIG_CB_MODE_MUX_BUTTONS
+  xTaskCreate(mux_buttons, "mux_buttons", 3 * 1024, NULL, 10, NULL);
+#elif CONFIG_CB_MODE_SDCARD
+  xTaskCreate(sdcard_example, "sdcard_example", 3 * 1024, NULL, 10, NULL);
+#else
+  ESP_LOGE(TAG, "No sample task selected");
+#endif
 
   /* Infinite loop */
   for (;;) {
