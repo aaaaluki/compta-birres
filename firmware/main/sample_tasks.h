@@ -29,6 +29,7 @@ void iccd4051_fixed(void *arg);
 
 /* Button samples */
 void button_single(void *arg);
+void mux_buttons(void *arg);
 
 /* Counter samples */
 void counter_button(void *arg);

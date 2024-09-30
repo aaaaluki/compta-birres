@@ -29,6 +29,7 @@
 #include "button.h"
 #include "display_7segment.h"
 #include "iccd4051.h"
+#include "muxbuttons.h"
 #include "sdcard.h"
 
 #define DISPLAY_DIGITS (5U)
@@ -146,6 +147,58 @@ void button_single(void *arg) {
     case SINGLE_PRESS: printf("[%lu] Single press\n", ts / 1000); break;
     case LONG_PRESS: printf("[%lu] Long press\n", ts / 1000); break;
     case DOUBLE_PRESS: printf("[%lu] Double press\n", ts / 1000); break;
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(10)); // Yield for 10 ms
+  }
+}
+
+void mux_buttons(void *arg) {
+  const uint8_t channels2read[3] = {0, 1, 2};
+  const uint8_t channels         = 3;
+  uint32_t counter               = 0;
+  uint32_t old_counter           = 0;
+
+  /* Initialize mux buttons */
+  MuxButton_t mux_button = {
+    .ic =
+      {
+        .s0  = CONFIG_CB_BUTTONS_PIN_SEL0,
+        .s1  = CONFIG_CB_BUTTONS_PIN_SEL1,
+        .s2  = CONFIG_CB_BUTTONS_PIN_SEL2,
+        .out = CONFIG_CB_BUTTONS_PIN_BUT,
+      },
+    .logic = CONFIG_CB_BUTTONS_PIN_BUT_LOGIC,
+  };
+  mux_buttons_init(&mux_button);
+
+  /* Infinite loop */
+  ButtonEvent_t event;
+  uint8_t i;
+  for (;;) {
+    for (uint8_t n = 0; n < channels; n++) {
+      i = channels2read[n];
+      mux_button_event(&mux_button, i, &event);
+      switch (event) {
+      case NO_PRESS: break;
+      case SINGLE_PRESS:
+        printf("Button %u: Single press\n", i);
+        counter++;
+        break;
+      case LONG_PRESS:
+        printf("Button %u: Long press\n", i);
+        counter++;
+        break;
+      case DOUBLE_PRESS:
+        printf("Button %u: Double press\n", i);
+        counter += 2;
+        break;
+      }
+    }
+
+    if (counter != old_counter) {
+      printf("Counter: %lu\n", counter);
+      old_counter = counter;
     }
 
     vTaskDelay(pdMS_TO_TICKS(10)); // Yield for 10 ms

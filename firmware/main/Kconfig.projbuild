@@ -104,6 +104,8 @@ menu "Compta Birres Configuration"
             bool "BUTTON: Display the state of one pin"
         config CB_MODE_COUNTER_BUTTON
             bool "BUTTON: Use one button as a counter"
+        config CB_MODE_MUX_BUTTONS
+            bool "BUTTON: Run multiple buttons with one 4051"
         config CB_MODE_SDCARD_EXAMPLE
             bool "SD CARD: Mount the uSD card and read it's contents"
     endchoice
@@ -114,6 +116,7 @@ menu "Compta Birres Configuration"
         default "CD4051: Get only one output continuously" if CB_MODE_ICCD4051_FIXED
         default "BUTTON: Display the state of one pin" if CB_MODE_BUTTON_SINGLE
         default "BUTTON: Use one button as a counter" if CB_MODE_COUNTER_BUTTON
+        default "BUTTON: Run multiple buttons with one 4051" if CB_MODE_MUX_BUTTONS
         default "SD CARD: Mount the uSD card and read it's contents" if CB_MODE_SDCARD_EXAMPLE
 
 endmenu
