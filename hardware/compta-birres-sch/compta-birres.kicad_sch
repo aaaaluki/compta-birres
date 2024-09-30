@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Root")
-		(date "2024-09-27")
-		(rev "1.5")
+		(date "2024-09-29")
+		(rev "1.6")
 		(company "Associació Cultural TGK")
 		(comment 1 "Author: lluc")
 	)
@@ -2027,7 +2027,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 30.48) (xy 228.6 30.48)
+			(xy 209.55 36.83) (xy 228.6 36.83)
 		)
 		(stroke
 			(width 0)
@@ -2067,7 +2067,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 35.56) (xy 228.6 35.56)
+			(xy 209.55 41.91) (xy 228.6 41.91)
 		)
 		(stroke
 			(width 0)
@@ -2084,6 +2084,16 @@
 			(type default)
 		)
 		(uuid "149549d1-1f07-41f1-b4db-909fd7c49e66")
+	)
+	(wire
+		(pts
+			(xy 223.52 30.48) (xy 228.6 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b3159bf-471d-4419-afb5-92b6543390ff")
 	)
 	(wire
 		(pts
@@ -2127,7 +2137,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 27.94) (xy 224.79 27.94)
+			(xy 228.6 34.29) (xy 218.44 34.29)
 		)
 		(stroke
 			(width 0)
@@ -2157,7 +2167,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 101.6) (xy 228.6 101.6)
+			(xy 209.55 105.41) (xy 228.6 105.41)
 		)
 		(stroke
 			(width 0)
@@ -2207,13 +2217,13 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 99.06) (xy 224.79 99.06)
+			(xy 224.79 101.6) (xy 228.6 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "627968b8-37b2-461f-8bc2-8776ab6919b0")
+		(uuid "66b1b4f6-a92d-45ed-bfda-b17de3f8af3d")
 	)
 	(wire
 		(pts
@@ -2307,7 +2317,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 104.14) (xy 228.6 104.14)
+			(xy 209.55 107.95) (xy 228.6 107.95)
 		)
 		(stroke
 			(width 0)
@@ -2387,7 +2397,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 33.02) (xy 228.6 33.02)
+			(xy 209.55 39.37) (xy 228.6 39.37)
 		)
 		(stroke
 			(width 0)
@@ -2457,7 +2467,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 38.1) (xy 228.6 38.1)
+			(xy 209.55 44.45) (xy 228.6 44.45)
 		)
 		(stroke
 			(width 0)
@@ -2497,7 +2507,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 106.68) (xy 228.6 106.68)
+			(xy 209.55 110.49) (xy 228.6 110.49)
 		)
 		(stroke
 			(width 0)
@@ -2547,7 +2557,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 109.22) (xy 228.6 109.22)
+			(xy 209.55 113.03) (xy 228.6 113.03)
 		)
 		(stroke
 			(width 0)
@@ -2577,7 +2587,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 40.64) (xy 224.79 40.64)
+			(xy 228.6 46.99) (xy 224.79 46.99)
 		)
 		(stroke
 			(width 0)
@@ -2617,7 +2627,7 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 111.76) (xy 228.6 111.76)
+			(xy 224.79 115.57) (xy 228.6 115.57)
 		)
 		(stroke
 			(width 0)
@@ -2711,7 +2721,7 @@
 		(uuid "aebce483-9642-4aaa-81bf-2fc8d6fa77d6")
 	)
 	(label "SD_CARD_MOSI"
-		(at 226.06 104.14 180)
+		(at 226.06 107.95 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2722,7 +2732,7 @@
 		(uuid "00771c96-24a9-4667-8bc5-c558d192b32d")
 	)
 	(label "SD_CARD_MISO"
-		(at 226.06 106.68 180)
+		(at 226.06 110.49 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2733,7 +2743,7 @@
 		(uuid "084f10f8-1ab4-4918-8399-3dee2e1bc13c")
 	)
 	(label "BUTTONS_SEL0"
-		(at 226.06 30.48 180)
+		(at 226.06 36.83 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2821,7 +2831,7 @@
 		(uuid "520025fa-9d6e-4725-b5cc-ddf873ee20ee")
 	)
 	(label "SD_CARD_CLK"
-		(at 226.06 101.6 180)
+		(at 226.06 105.41 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2854,7 +2864,7 @@
 		(uuid "6faf8c43-60e0-4aba-8e81-cda897b3d43c")
 	)
 	(label "SD_CARD_CS"
-		(at 226.06 109.22 180)
+		(at 226.06 113.03 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2865,7 +2875,7 @@
 		(uuid "7e63e2f8-8916-4066-bf9a-f4357b558b4d")
 	)
 	(label "BUTTONS_SEL2"
-		(at 226.06 35.56 180)
+		(at 226.06 41.91 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2942,7 +2952,7 @@
 		(uuid "a268443a-7022-44bb-8cc5-f5a9c12dbfc7")
 	)
 	(label "BUTTONS_SEL1"
-		(at 226.06 33.02 180)
+		(at 226.06 39.37 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2986,7 +2996,7 @@
 		(uuid "d651f0f7-0603-4c0d-af5c-8339a4cd19e3")
 	)
 	(label "BUTTONS_BUT"
-		(at 226.06 38.1 180)
+		(at 226.06 44.45 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3086,7 +3096,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 224.79 111.76 0)
+		(at 224.79 115.57 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3095,7 +3105,7 @@
 		(dnp no)
 		(uuid "04aa676a-36c9-42d5-a97d-b3ccab9e03fc")
 		(property "Reference" "#PWR010"
-			(at 224.79 118.11 0)
+			(at 224.79 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3104,7 +3114,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 224.79 116.84 0)
+			(at 224.79 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3112,7 +3122,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 224.79 111.76 0)
+			(at 224.79 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3121,7 +3131,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 224.79 111.76 0)
+			(at 224.79 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3130,7 +3140,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 224.79 111.76 0)
+			(at 224.79 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3145,6 +3155,72 @@
 			(project "compta-birres"
 				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
 					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 223.52 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "096d846f-b6b0-4252-a692-22bd006d2b25")
+		(property "Reference" "#PWR018"
+			(at 223.52 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 223.52 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 223.52 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 223.52 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 223.52 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9633b988-db6e-4e5c-a8f0-39338624b563")
+		)
+		(instances
+			(project ""
+				(path "/9d879fd6-4f9b-4add-8486-efab784c3781"
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -3422,7 +3498,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 224.79 27.94 0)
+		(at 218.44 34.29 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3432,7 +3508,7 @@
 		(fields_autoplaced yes)
 		(uuid "67024f60-f6e9-4cab-8cf0-9e7003932c08")
 		(property "Reference" "#PWR01"
-			(at 224.79 31.75 0)
+			(at 218.44 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3441,7 +3517,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 224.79 22.86 0)
+			(at 218.44 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3449,7 +3525,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 224.79 27.94 0)
+			(at 218.44 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3458,7 +3534,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 224.79 27.94 0)
+			(at 218.44 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3467,7 +3543,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 224.79 27.94 0)
+			(at 218.44 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3626,7 +3702,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 224.79 40.64 0)
+		(at 224.79 46.99 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3635,7 +3711,7 @@
 		(dnp no)
 		(uuid "784ce412-2997-481c-a8bd-4f3975902b8b")
 		(property "Reference" "#PWR02"
-			(at 224.79 46.99 0)
+			(at 224.79 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3644,7 +3720,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 224.79 45.72 0)
+			(at 224.79 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3652,7 +3728,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 224.79 40.64 0)
+			(at 224.79 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3661,7 +3737,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 224.79 40.64 0)
+			(at 224.79 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3670,7 +3746,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 224.79 40.64 0)
+			(at 224.79 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4606,7 +4682,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 224.79 99.06 0)
+		(at 224.79 101.6 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4616,7 +4692,7 @@
 		(fields_autoplaced yes)
 		(uuid "e972d90e-c81b-49bb-b10f-3af880aa96ec")
 		(property "Reference" "#PWR09"
-			(at 224.79 102.87 0)
+			(at 224.79 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4625,7 +4701,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 224.79 93.98 0)
+			(at 224.79 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4633,7 +4709,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 224.79 99.06 0)
+			(at 224.79 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4642,7 +4718,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 224.79 99.06 0)
+			(at 224.79 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4651,7 +4727,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 224.79 99.06 0)
+			(at 224.79 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4888,8 +4964,8 @@
 		)
 	)
 	(sheet
-		(at 228.6 96.52)
-		(size 25.4 17.78)
+		(at 228.6 99.06)
+		(size 25.4 19.05)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -4900,7 +4976,7 @@
 		)
 		(uuid "ef1dacc5-c1be-4b63-aa1d-59f87449502d")
 		(property "Sheetname" "SD Card"
-			(at 228.6 95.8084 0)
+			(at 228.6 98.3484 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4909,7 +4985,7 @@
 			)
 		)
 		(property "Sheetfile" "sd_card.kicad_sch"
-			(at 228.6 114.8846 0)
+			(at 228.6 118.6946 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4918,7 +4994,7 @@
 			)
 		)
 		(pin "MISO" input
-			(at 228.6 106.68 180)
+			(at 228.6 110.49 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4928,7 +5004,7 @@
 			(uuid "3832a431-5932-4750-96e5-9788dad8419e")
 		)
 		(pin "CLK" input
-			(at 228.6 101.6 180)
+			(at 228.6 105.41 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4938,7 +5014,7 @@
 			(uuid "2910197e-751d-4c2d-82a3-a7bce1429142")
 		)
 		(pin "CS" input
-			(at 228.6 109.22 180)
+			(at 228.6 113.03 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4948,7 +5024,7 @@
 			(uuid "fe176506-747d-4c4c-8521-b4de591096fb")
 		)
 		(pin "GND" input
-			(at 228.6 111.76 180)
+			(at 228.6 115.57 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4958,7 +5034,7 @@
 			(uuid "78a83ed5-113c-4053-9d21-6ef477720cc6")
 		)
 		(pin "3V3" input
-			(at 228.6 99.06 180)
+			(at 228.6 101.6 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4968,7 +5044,7 @@
 			(uuid "5d6a683f-4338-4715-bead-0deea8172e48")
 		)
 		(pin "MOSI" input
-			(at 228.6 104.14 180)
+			(at 228.6 107.95 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4986,8 +5062,8 @@
 		)
 	)
 	(sheet
-		(at 228.6 25.4)
-		(size 25.4 17.78)
+		(at 228.6 27.94)
+		(size 25.4 21.59)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -4998,7 +5074,7 @@
 		)
 		(uuid "f932910e-8a32-4a38-b84f-035ec0678bed")
 		(property "Sheetname" "Buttons"
-			(at 228.6 24.6884 0)
+			(at 228.6 27.2284 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5007,7 +5083,7 @@
 			)
 		)
 		(property "Sheetfile" "buttons.kicad_sch"
-			(at 228.6 43.7646 0)
+			(at 228.6 50.1146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5016,7 +5092,7 @@
 			)
 		)
 		(pin "BUT" input
-			(at 228.6 38.1 180)
+			(at 228.6 44.45 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5026,7 +5102,7 @@
 			(uuid "671fb00d-8c5c-49f8-8a54-70c314132959")
 		)
 		(pin "SEL0" input
-			(at 228.6 30.48 180)
+			(at 228.6 36.83 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5036,7 +5112,7 @@
 			(uuid "407950e0-a772-4158-b112-9c7050b8211c")
 		)
 		(pin "SEL1" input
-			(at 228.6 33.02 180)
+			(at 228.6 39.37 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5046,7 +5122,7 @@
 			(uuid "55034c28-714a-4f59-8999-45d0e8bd6775")
 		)
 		(pin "SEL2" input
-			(at 228.6 35.56 180)
+			(at 228.6 41.91 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5056,7 +5132,7 @@
 			(uuid "f1d1d4c5-550e-437b-a746-801b134284bf")
 		)
 		(pin "GND" input
-			(at 228.6 40.64 180)
+			(at 228.6 46.99 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5066,7 +5142,7 @@
 			(uuid "5711c2ad-cbd8-428e-af40-87473e90fd35")
 		)
 		(pin "3V3" input
-			(at 228.6 27.94 180)
+			(at 228.6 34.29 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5074,6 +5150,16 @@
 				(justify left)
 			)
 			(uuid "e7f89fcc-3935-4e12-bf56-0659b3d23f25")
+		)
+		(pin "12V" input
+			(at 228.6 30.48 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "608e3405-cf28-473b-aaeb-949a9d3b4175")
 		)
 		(instances
 			(project "compta-birres"
