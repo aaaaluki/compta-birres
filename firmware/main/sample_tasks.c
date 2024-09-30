@@ -28,6 +28,7 @@
 
 #include "button.h"
 #include "display_7segment.h"
+#include "iccd4051.h"
 #include "sdcard.h"
 
 #define DISPLAY_DIGITS (5U)
@@ -72,6 +73,54 @@ void display_rotate_numbers(void *arg) {
     counter++;
     counter = counter % 10;
     vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+}
+
+/* IC samples */
+void iccd4051_rotation(void *arg) {
+  const uint8_t channels         = 8;
+  const uint8_t channels2read[3] = {0, 1, 2};
+
+  /* Initialize CD4051 */
+  IC_CD4051_t ic = {
+    .s0  = CONFIG_CB_BUTTONS_PIN_SEL0,
+    .s1  = CONFIG_CB_BUTTONS_PIN_SEL1,
+    .s2  = CONFIG_CB_BUTTONS_PIN_SEL2,
+    .out = CONFIG_CB_BUTTONS_PIN_BUT,
+  };
+  iccd4051_init(&ic);
+
+  /* Infinite loop */
+  for (;;) {
+    for (uint8_t i = 0; i < channels; i++) {
+      bool data;
+      iccd4051_read_channel(&ic, i, &data);
+      printf("Channel %u: %s", i, data ? "HIGH" : "LOW");
+      printf(" ; raw: %s\n", gpio_get_level(ic.out) ? "HIGH" : "LOW");
+      vTaskDelay(500 / portTICK_PERIOD_MS);
+    }
+  }
+}
+
+void iccd4051_fixed(void *arg) {
+  /* Initialize CD4051 */
+  IC_CD4051_t ic = {
+    .s0  = CONFIG_CB_BUTTONS_PIN_SEL0,
+    .s1  = CONFIG_CB_BUTTONS_PIN_SEL1,
+    .s2  = CONFIG_CB_BUTTONS_PIN_SEL2,
+    .out = CONFIG_CB_BUTTONS_PIN_BUT,
+  };
+  iccd4051_init(&ic);
+
+  /* Select channel 0 */
+  iccd4051_select(&ic, 0);
+
+  /* Infinite loop */
+  for (;;) {
+    bool data;
+    iccd4051_read(&ic, &data);
+    printf("Data: %s\n", data ? "HIGH" : "LOW");
+    vTaskDelay(100 / portTICK_PERIOD_MS);
   }
 }
 

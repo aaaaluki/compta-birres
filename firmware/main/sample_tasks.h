@@ -23,6 +23,10 @@
 /* Display samples */
 void display_rotate_numbers(void *arg);
 
+/* IC samples */
+void iccd4051_rotation(void *arg);
+void iccd4051_fixed(void *arg);
+
 /* Button samples */
 void button_single(void *arg);
 

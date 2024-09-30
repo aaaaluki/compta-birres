@@ -44,6 +44,21 @@ menu "Compta Birres Configuration"
             default 34
             help
                 GPIO pin to use for the buttons input
+        config CB_BUTTONS_PIN_SEL0
+            int "CD4051 SEL0 pin"
+            default 4
+            help
+                GPIO pint to use as output for controlling the SEL0 pin of the CD4051 IC
+        config CB_BUTTONS_PIN_SEL1
+            int "CD4051 SEL1 pin"
+            default 16
+            help
+                GPIO pint to use as output for controlling the SEL1 pin of the CD4051 IC
+        config CB_BUTTONS_PIN_SEL2
+            int "CD4051 SEL2 pin"
+            default 17
+            help
+                GPIO pint to use as output for controlling the SEL2 pin of the CD4051 IC
         config CB_BUTTONS_PIN_BUT_LOGIC
             int "Logic for the input button"
             default 1
