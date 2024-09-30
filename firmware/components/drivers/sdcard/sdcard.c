@@ -19,6 +19,10 @@
 
 #include "sdcard.h"
 
+#include <dirent.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "esp_vfs_fat.h"
 #include "sdmmc_cmd.h"
 
@@ -40,7 +44,7 @@ esp_err_t sdcard_init(SDCard_t *sdcard) {
   };
 
   sdmmc_card_t *card;
-  const char mount_point[] = MOUNT_POINT;
+  const char mount_point[] = SDCARD_MOUNT_POINT;
   ESP_LOGI(TAG, "Initializing SD card");
 
   // By default, SD card frequency is initialized to SDMMC_FREQ_DEFAULT (20MHz)
@@ -94,5 +98,32 @@ esp_err_t sdcard_init(SDCard_t *sdcard) {
   // Card has been initialized, print its properties
   sdmmc_card_print_info(stdout, card);
 
+  return ESP_OK;
+}
+
+esp_err_t sdcard_list_files(SDCard_t *sdcard, const char *path) {
+  struct dirent *de;
+  char *full_path = malloc(strlen(SDCARD_MOUNT_POINT) + strlen(path) + 1);
+  if (full_path == NULL) {
+    ESP_LOGE(TAG, "Could not allocate memory for full path");
+    return ESP_ERR_NO_MEM;
+  }
+
+  strcpy(full_path, SDCARD_MOUNT_POINT);
+  strcat(full_path + strlen(SDCARD_MOUNT_POINT), path);
+  DIR *dr = opendir(full_path);
+  ESP_LOGI(TAG, "Listing files in %s", full_path);
+  free(full_path);
+
+  if (dr == NULL) {
+    ESP_LOGE(TAG, "Could not open current directory");
+    return ESP_ERR_NOT_FOUND;
+  }
+
+  while ((de = readdir(dr)) != NULL) {
+    ESP_LOGI(TAG, "%s", de->d_name);
+  }
+
+  closedir(dr);
   return ESP_OK;
 }

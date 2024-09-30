@@ -22,12 +22,9 @@
 
 #include "driver/gpio.h"
 
-#define MOUNT_POINT "/sdcard"
+#define SDCARD_MOUNT_POINT "/sdcard"
 
-#define SDCARD_PIN_MOSI GPIO_NUM_23
-#define SDCARD_PIN_MISO GPIO_NUM_19
-#define SDCARD_PIN_CLK  GPIO_NUM_18
-#define SDCARD_PIN_CS   GPIO_NUM_5
+#define SDCARD_MAX_LINE_LENGTH (256U)
 
 typedef struct {
   gpio_num_t mosi;
@@ -44,5 +41,15 @@ typedef struct {
  * @return ESP_OK on success, ESP_FAIL otherwise
  */
 esp_err_t sdcard_init(SDCard_t *sdcard);
+
+/**
+ * @brief List files in the SD card
+ *
+ * @param sdcard Pointer to the SDCard_t struct
+ * @param path Path to the directory
+ *
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
+esp_err_t sdcard_list_files(SDCard_t *sdcard, const char *path);
 
 #endif /* SDCARD_H_ */

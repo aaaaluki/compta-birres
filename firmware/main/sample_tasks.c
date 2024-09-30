@@ -154,6 +154,12 @@ void sdcard_example(void *arg) {
     ESP_LOGE(TAG, "Failed to initialize SD card\n");
   }
 
+  /* List files in the SD card */
+  ret = sdcard_list_files(&sdcard, "");
+  if (ret != ESP_OK) {
+    ESP_LOGE(TAG, "Failed to list files in SD card\n");
+  }
+
   /* Infinite loop */
   for (;;) {
     vTaskDelay(1000 / portTICK_PERIOD_MS);

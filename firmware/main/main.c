@@ -27,11 +27,14 @@ static const char *TAG = "CB_main";
 
 void app_main(void) {
   ESP_LOGI(TAG, "Starting Compta Birres");
-  // xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024,
-  // NULL, 10, NULL);
-  // xTaskCreate(button_single, "button_single", 3 * 1024, NULL, 10, NULL);
-  // xTaskCreate(counter_button, "counter_button", 3 * 1024, NULL, 10, NULL);
-  xTaskCreate(sdcard_example, "sdcard_example", 3 * 1024, NULL, 10, NULL);
+  /* xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024,
+   * NULL, 10, NULL); */
+  xTaskCreate(iccd4051_rotation, "iccd4051_rotation", 3 * 1024, NULL, 10, NULL);
+  /* xTaskCreate(iccd4051_fixed, "iccd4051_fixed", 3 * 1024, NULL, 10, NULL); */
+  /* xTaskCreate(button_single, "button_single", 3 * 1024, NULL, 10, NULL); */
+  /* xTaskCreate(counter_button, "counter_button", 3 * 1024, NULL, 10, NULL); */
+  /* xTaskCreate(mux_buttons, "mux_buttons", 3 * 1024, NULL, 10, NULL); */
+  /* xTaskCreate(sdcard_example, "sdcard_example", 3 * 1024, NULL, 10, NULL); */
 
   /* Infinite loop */
   for (;;) {
