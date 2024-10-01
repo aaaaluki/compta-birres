@@ -103,17 +103,9 @@ esp_err_t sdcard_init(SDCard_t *sdcard) {
 
 esp_err_t sdcard_list_files(SDCard_t *sdcard, const char *path) {
   struct dirent *de;
-  char *full_path = malloc(strlen(SDCARD_MOUNT_POINT) + strlen(path) + 1);
-  if (full_path == NULL) {
-    ESP_LOGE(TAG, "Could not allocate memory for full path");
-    return ESP_ERR_NO_MEM;
-  }
 
-  strcpy(full_path, SDCARD_MOUNT_POINT);
-  strcat(full_path + strlen(SDCARD_MOUNT_POINT), path);
-  DIR *dr = opendir(full_path);
-  ESP_LOGI(TAG, "Listing files in %s", full_path);
-  free(full_path);
+  ESP_LOGI(TAG, "Listing files in %s", path);
+  DIR *dr = opendir(path);
 
   if (dr == NULL) {
     ESP_LOGE(TAG, "Could not open current directory");
@@ -125,5 +117,22 @@ esp_err_t sdcard_list_files(SDCard_t *sdcard, const char *path) {
   }
 
   closedir(dr);
+  return ESP_OK;
+}
+
+esp_err_t sdcard_cat_file(SDCard_t *sdcard, const char *path) {
+  FILE *fp = fopen(path, "r");
+  if (fp == NULL) {
+    ESP_LOGE(TAG, "Failed to open file for reading");
+    return ESP_FAIL;
+  }
+
+  // Read and display the file contents
+  char buffer[256];
+  while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+    printf("%s", buffer);
+  }
+  fclose(fp);
+
   return ESP_OK;
 }

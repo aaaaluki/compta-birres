@@ -52,4 +52,14 @@ esp_err_t sdcard_init(SDCard_t *sdcard);
  */
 esp_err_t sdcard_list_files(SDCard_t *sdcard, const char *path);
 
+/**
+ * @brief Read a file from the SD card and print it's contents
+ *
+ * @param sdcard Pointer to the SDCard_t struct
+ * @param path Path to the file
+ *
+ * @return ESP_OK on success, ESP_FAIL otherwise
+ */
+esp_err_t sdcard_cat_file(SDCard_t *sdcard, const char *path);
+
 #endif /* SDCARD_H_ */
