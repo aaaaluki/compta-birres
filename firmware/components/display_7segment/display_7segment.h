@@ -49,7 +49,7 @@ typedef enum {
 } Display7SegmentType_t;
 
 typedef struct {
-  const uint8_t digits;
+  uint8_t digits;
   Display7SegmentType_t type;
   IC_74HC595_t ic;
 } Display7Segment_t;
