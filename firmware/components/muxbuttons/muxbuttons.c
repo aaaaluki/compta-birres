@@ -18,7 +18,10 @@
  */
 
 #include "muxbuttons.h"
+
 #include "esp_err.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 esp_err_t mux_buttons_init(MuxButton_t *mux_button) {
 
@@ -62,6 +65,9 @@ esp_err_t mux_button_event(MuxButton_t *mux_button, uint8_t button,
 
   /* Set the CD4051 channel */
   iccd4051_select(&mux_button->ic, button);
+
+  /* Delay for the CD4051 to settle */
+  vTaskDelay(pdMS_TO_TICKS(1));
 
   /* Get the button event */
   return button_event(&mux_button->_buttons[button], event);
