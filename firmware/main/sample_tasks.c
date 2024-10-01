@@ -34,7 +34,7 @@
 
 #define DISPLAY_DIGITS (5U)
 
-const char *TAG = "CB_sample_tasks";
+const char *TAG = "cb_sample_tasks";
 
 /* Display samples */
 void display_rotate_numbers(void *arg) {

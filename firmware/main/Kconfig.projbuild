@@ -92,8 +92,10 @@ menu "Compta Birres Configuration"
 
     choice CB_MODE_CHOICE
         prompt "Sample mode to use"
-        default MODE_DISPLAY_ROTATE_NUMBERS
+        default CB_MODE_MASTER
 
+        config CB_MODE_MASTER
+            bool "MASTER: Run the full compta birres"
         config CB_MODE_DISPLAY_ROTATE_NUMBERS
             bool "DISPLAY: Display rotate numbers"
         config CB_MODE_ICCD4051_ROTATION
@@ -111,6 +113,7 @@ menu "Compta Birres Configuration"
     endchoice
     config CB_SAMPLE_MODE
         string
+        default "MASTER: Run the full compta birres" if CB_MODE_MASTER
         default "DISPLAY: Display rotate numbers" if CB_MODE_DISPLAY_ROTATE_NUMBERS
         default "CD4051: Get each output rotation" if CB_MODE_ICCD4051_ROTATION
         default "CD4051: Get only one output continuously" if CB_MODE_ICCD4051_FIXED

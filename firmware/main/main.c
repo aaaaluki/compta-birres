@@ -19,15 +19,27 @@
 
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
 #include "freertos/task.h"
 
+#include "compta_birres.h"
 #include "sample_tasks.h"
 
-static const char *TAG = "CB_main";
+static const char *TAG = "app_main";
 
 void app_main(void) {
   ESP_LOGI(TAG, "Starting Compta Birres");
-#if CONFIG_CB_MODE_DISPLAY_ROTATE_NUMBERS
+#if CONFIG_CB_MODE_MASTER
+  /* create the logging queue */
+  QueueHandle_t log_queue = xQueueCreate(16, sizeof(LogBirra_t));
+  if (log_queue == NULL) {
+    ESP_LOGE(TAG, "Failed to create log queue");
+    return;
+  }
+
+  xTaskCreate(cb_master, "cb_master", 4 * 1024, (void *)log_queue, 10, NULL);
+  xTaskCreate(cb_logger, "cb_logger", 4 * 1024, (void *)log_queue, 10, NULL);
+#elif CONFIG_CB_MODE_DISPLAY_ROTATE_NUMBERS
   xTaskCreate(display_rotate_numbers, "display_rotate_numbers", 3 * 1024, NULL,
               10, NULL);
 #elif CONFIG_CB_MODE_ICCD4051_ROTATION
@@ -40,7 +52,7 @@ void app_main(void) {
   xTaskCreate(counter_button, "counter_button", 3 * 1024, NULL, 10, NULL);
 #elif CONFIG_CB_MODE_MUX_BUTTONS
   xTaskCreate(mux_buttons, "mux_buttons", 3 * 1024, NULL, 10, NULL);
-#elif CONFIG_CB_MODE_SDCARD
+#elif CONFIG_CB_MODE_SDCARD_EXAMPLE
   xTaskCreate(sdcard_example, "sdcard_example", 3 * 1024, NULL, 10, NULL);
 #else
   ESP_LOGE(TAG, "No sample task selected");
