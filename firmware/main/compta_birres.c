@@ -33,7 +33,6 @@ static const char *TAG = "cb_master";
 
 static ComptaBirres_t compta_birres;
 
-static const char *uuids_file_name   = "/sdcard/uuids";
 static const char *counter_file_name = "/sdcard/cs16";
 static const char *logbase_file_name = "/sdcard/cb";
 
@@ -91,26 +90,7 @@ esp_err_t cb_init(void) {
     fclose(counter_file);
   }
 
-  /* Create uuids file if it does not exist */
-  if (access(uuids_file_name, F_OK) != 0) {
-    ESP_LOGI(TAG, "Creating new uuid file");
-    FILE *uuids_file = fopen(uuids_file_name, "w");
-    if (uuids_file == NULL) {
-      ESP_LOGE(TAG, "Failed to create uuid file");
-      return ESP_FAIL;
-    }
-    fclose(uuids_file);
-  }
-
-  /* generate new uuid for this boot */
-  char uuid[37];
-  generate_uuid(uuid);
-
-  FILE *uuids_file = fopen(uuids_file_name, "a");
-  fprintf(uuids_file, "%s\n", uuid);
-  fclose(uuids_file);
-
-  /* Create new log file with the generated uuid */
+  /* Create new log file from the current counter */
   snprintf(compta_birres.logfile, sizeof(compta_birres.logfile), "%s%05lu",
            logbase_file_name, compta_birres._counter);
   ESP_LOGI(TAG, "Log file: %s\n", compta_birres.logfile);
